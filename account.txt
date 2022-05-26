@@ -1,0 +1,4 @@
+1000 4300 positif 700
+2000 700 positif 900
+3000 800 positif 1200
+4000 500 negatif 900

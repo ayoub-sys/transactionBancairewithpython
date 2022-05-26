@@ -1,0 +1,322 @@
+ScreenManager:
+    Login:
+    Transaction:
+    Credit:
+    Debit:
+    Invoice:
+<Login>:
+
+    BoxLayout:
+		spacing:[900,900]
+		orientation: "horizontal"
+		size: root.width, root.height
+        padding:[100,10,100,100]
+		
+		
+		
+
+
+
+		
+
+		Image:
+			source: 'bank7.jpeg'
+			allow_stretch: True
+			keep_ratio: True
+            size_hint_x:1
+            size_hint_y: 0.92
+			
+
+
+
+		
+		GridLayout:
+			cols:1
+			rows:6
+			padding:[100,100,100,100]
+			
+			spacing: 30
+			
+			
+			Label:
+				
+				color:(0,0,0,1)
+				text:'Enter your 4 confidential number'
+				font_size:'25sp'
+				
+				
+				
+			TextInput:
+                
+				password:True
+				multiline:False
+				size_hint_y: None
+				size_hint_x: None
+				font_size:'25sp'
+				height:50
+				width:200
+				backgroud_color:(.463,0.403,.313,1)
+				hint_text:'Enter Credential'
+				icon_right:"android"
+				id:credential
+            Label:
+                id:status
+
+			Button:
+
+				text:'CANCEL'
+				height:150
+				width:150
+				
+				background_color:(27/255,104/255,199/255,1)
+				on_press: root.ids.credential.text=''
+				
+
+			
+			Button:
+
+
+				text:'SUBMIT'
+				height:90
+				width:150
+				on_press: root.getCredential()
+				background_color:(64/255,160/255,0/255,1)
+
+            Button:
+
+
+				text:'EXIT'
+				height:90
+				width:150
+				on_press: app.stop()
+				background_color:(255,0,0,1)
+<Transaction>:
+    name:'Transaction'
+    FloatLayout:
+        padding:450
+        size:root.width,root.height
+        spacing:0.9
+        
+        
+        
+
+        Button:
+            id: debit
+            text: 'Debit'
+            pos_hint: {'x':.35, 'y': 0.7}
+            size_hint: (0.3,0.15)
+            font_size: '20sp'
+            on_press: root.debit() 
+
+
+            
+        Button:
+            
+            text: 'Credit'
+            pos_hint: {'x':.35, 'y': 0.5}
+            size_hint: (0.3,0.15)
+            font_size: '20sp'
+            on_press: root.credit()   
+            
+                
+            
+        Button:
+            id:rib
+            text: 'Invoice'
+            pos_hint: {'x':.35, 'y': 0.3}
+            size_hint: (0.3,0.15)
+            font_size: '20sp'
+            on_press: root.showInvoice()
+
+        Button:
+            
+            text: 'Exit'
+            pos_hint: {'x':.35, 'y': .1}
+            size_hint: (0.3,0.15)
+            background_color:(255,0,0,1)
+            font_size: '20sp'
+            on_release: app.stop()
+<Credit>:
+    name:'Credit'
+    FloatLayout:
+        padding:500
+        size:root.width,root.height
+        spacing:0.9
+    
+            
+       
+
+        TextInput:
+
+
+            
+            multiline:False
+            size_hint:(0.31,0.09)
+            font_size:'20sp'
+            height:40
+            width:200
+            backgroud_color:(.463,0.403,.313,1)
+            hint_text:'Enter money to deposit'
+            icon_right:"android"
+            id:amountToCredit
+            pos_hint: {'x':.35, 'y': 0.75}
+           
+            
+        
+				
+        Label:   
+
+            id:hi
+            pos_hint: {'x':0.01, 'y': 0.2} 
+            text:''
+            font_size:'20sp'
+            
+            
+                
+            
+        Button:
+            id:rib
+            text: 'back'
+            pos_hint: {'x':.1, 'y': 0.2}
+            
+            size_hint: (0.31,0.09)
+            font_size: '25sp'
+            background_color:(27/255,104/255,199/255,1)
+            on_release:app.root.current='Transaction'
+
+
+        Button:
+            id:hh
+            text:'submit'
+            pos_hint: {'x':.35, 'y': 0.5}
+            size_hint: (0.31,0.09)
+            font_size: '25sp'
+            background_color:(64/255,160/255,0/255,1)
+            on_press:root.crediter()
+            
+
+        Button:
+            
+            text: 'Exit'
+            pos_hint: {'x':.58, 'y': 0.2}
+            size_hint: (0.31,0.09)
+            background_color:(255,0,0,1)
+            font_size: '25sp'
+            on_release: app.stop()
+<Debit>:
+    name:'Debit'
+    FloatLayout:
+        padding:500
+        size:root.width,root.height
+        spacing:0.9
+    
+            
+       
+
+        TextInput:
+
+
+            
+            multiline:False
+            size_hint:(0.31,0.09)
+            font_size:'20sp'
+            height:40
+            width:200
+            backgroud_color:(.463,0.403,.313,1)
+            hint_text:'Enter money to debit'
+            icon_right:"android"
+            id:amountToDebit
+            pos_hint: {'x':.35, 'y': 0.75}
+            
+        
+				
+        Label:   
+
+            id:hello
+            pos_hint: {'x':0.01, 'y': 0.2} 
+            text:''
+            font_size:'20sp'
+            color:(64/255,160/255,0/255,1)
+            
+            
+                
+            
+        Button:
+            id:rib
+            text: 'back'
+            pos_hint: {'x':.1, 'y': 0.2}
+            size_hint: (0.31,0.09)
+            font_size: '25sp'
+            background_color:(27/255,104/255,199/255,1)
+            on_release:app.root.current='Transaction'
+
+
+        Button:
+            id:hhhh
+            text:'submit'
+            pos_hint: {'x':.35, 'y': 0.5}
+            size_hint: (0.31,0.09)
+            font_size: '25sp'
+            background_color:(64/255,160/255,0/255,1)
+            on_press:root.debiter()
+            
+
+        Button:
+            
+            text: 'Exit'
+            pos_hint: {'x':.58, 'y': 0.2}
+            size_hint: (0.31,0.09)
+            background_color:(255,0,0,1)
+            font_size: '25sp'
+            on_release: app.stop()
+<Invoice>:
+    name:'Invoice'
+    FloatLayout:
+        padding:500
+        size:root.width,root.height
+        spacing:0.9
+
+
+        Label:   
+
+        
+            pos_hint: {'x':0.01, 'y': 0.3} 
+            text:'you should pay '
+            font_size:'40sp'
+            color:(64/255,160/255,0/255,1)
+          
+
+
+
+        Label:   
+
+            id:bill
+            pos_hint: {'x':0.01, 'y': 0.2} 
+            
+            font_size:'1000sp'
+            color:(64/255,160/255,0/255,1)
+
+
+
+
+        Button:
+            
+            text: 'Exit'
+            pos_hint: {'x':.6, 'y': .2}
+            size_hint: (0.31,0.09)
+            background_color:(255,0,0,1)
+            font_size: '20sp'
+            on_release: app.stop()
+
+
+
+        Button:
+            id:rib
+            text: 'back'
+            pos_hint: {'x':.1, 'y': 0.2}
+            size_hint: (0.31,0.09)
+            font_size: '25sp'
+            background_color:(27/255,104/255,199/255,1)
+            on_release:app.root.current='Transaction'
+
+
